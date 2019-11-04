@@ -1,0 +1,19 @@
+\subsection{Research question}
+% This work compares the use of Multilayer Perceptrons (MLP), Convolutional Neural Networks (CNN) and Long Short-Term Memory (LSTM), and combinations of those types of networks, to perform file fragment classification, which is the first step of the data carving process, identification, answering the following initial questions:
+
+The study of Beebee et al. \cite{beebe_sceadan:_2013} is one of the best works on file fragment classification: it emphasized the problem of multiple data types in a file type, achieved high accuracy using a large amount of file types, made their source code available, suggested hierarchical classification as a way to improve scalability, suggested that misclassification analysis should play a prominent role in classification research, endorsed that high entropy file types tend to have a lower classification accuracy, and briefly mentions that the number of classes should be taken in consideration when comparing accuracy of different studies.
+
+This research addresses specifically the last item in the list, the influence of number of classes in accuracy, but the two previous items, misclassification analysis and high entropy, are also part of the discussion. Although is intuitive that a higher number of classes should have an influence on the results of a file fragment classifier, the issue, considering the carving problem perspective, wasn't formally studied yet. Thus, the following initial question is proposed:
+
+%from pep 4.1
+\begin{enumerate}[itemindent=\parindent,label=\textbf{Q\arabic*.}]
+
+% Then, the influence of the number of classes on the accuracy of the resulting models is briefly explored.
+    \item How does the accuracy of neural network models change relative to the number of classes?
+
+\end{enumerate}
+
+% In this work, only neural networks are implemented, but other machine learning approaches exist, like Support Vector Machines (SVM) and k-Nearest Neighbors (kNN). This choice of restriction was motivated by the success that deep neural networks have shown in other fields, like image classification and speech recognition.
+% The flexibility of neural networks to combine different types of layers is also important, as it is a core characteristic being explored in this research.
+
+% Two sets of experiments were conducted. In the first set, the initial 512 bytes of a file is used as input to the tested neural network, whose task is to predict the file type. The second set is similar, but the 512 bytes fragment is extracted from a random position of the file, which is a more difficult task as it cannot depend on header patterns.

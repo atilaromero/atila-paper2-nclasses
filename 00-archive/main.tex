@@ -1,0 +1,208 @@
+%----------------------------------------------------------------------------------
+% Exemplo do uso da classe pucrs-ppgcc.cls.
+%----------------------------------------------------------------------------------
+
+% Seleção de idioma da monografia. Por enquanto as únicas opções
+% suportadas são 'portuguese' e 'english'
+% Para impressão em frente e verso, use a opção 'twoside'. Da
+% mesma forma, use 'oneside' para impressão em um lado apenas.
+\documentclass[english,oneside]{pucrs-ppgcc}
+%\documentclass[english,twoside]{pucrs-ppgcc}
+
+%----------------------------------------------------------------
+% Coloque seus pacotes abaixo.
+%
+% Obs.: muitos pacotes de uso comum do LaTeX, como amsmath,
+% geometry e url já são automaticamente incluídos pela classe
+% (veja o arquivo .cls). Isso torna obrigatória a presença destes
+% no sistema para o uso desta classe, mas ao mesmo tempo o uso se
+% torna mais simples.  Recomendo a instalação da versão mais
+% recente da distribuição TeXLive (para Windows e UNIXes):
+% www.tug.org/texlive/
+%
+% Pacotes e opções já incluídas automaticamente:
+%
+% \RequirePackage[T1]{fontenc}[2005/09/27]
+% \RequirePackage[utf8x]{inputenc}[2008/03/30]
+% \RequirePackage[english,brazil]{babel}[2008/07/06]
+% \RequirePackage[a4paper]{geometry}[2010/09/12]
+% \RequirePackage{textcomp}[2005/09/27]
+% \RequirePackage{lmodern}[2009/10/30]
+% \RequirePackage{indentfirst}[1995/11/23]
+% \RequirePackage{setspace}[2000/12/01]
+% \RequirePackage{textcase}[2004/10/07]
+% \RequirePackage{float}[2001/11/08]
+% \RequirePackage{amsmath}[2000/07/18]
+% \RequirePackage{amssymb}[2009/06/22]
+% \RequirePackage{amsfonts}[2009/06/22]
+% \RequirePackage{url}
+% \RequirePackage[table]{xcolor}[2007/01/21]
+%\RequirePackage{array}[2008/09/09]
+%\RequirePackage{longtable}
+%----------------------------------------------------------------
+% Para inserção de figuras.
+\usepackage{graphicx}
+% Utilize a opção 'pdftex' se você estiver usando o pdflatex (que
+% permite figuras em formatos como .jpg ou .png)
+%\usepackage[pdftex]{graphicx}
+
+% Para tabelas com elementos ocupando mais de uma linha
+\usepackage{multirow}
+% Para frações na mesma linha (ex. ⅓).
+\usepackage{nicefrac}
+% Para inserir figuras lado a lado.
+% \usepackage{subfigure}
+% Para formatar algoritmos.
+% A opção [algo2e] é necessária para evitar conflitos
+% com as definições da classe.
+%\usepackage[algo2e]{algorithm2e}
+\usepackage{algorithmic}
+% Um float do tipo algoritmo. No momento
+% este pacote é incompatível com a classe.
+%\usepackage{algorithm}
+\usepackage{bookmark}
+\usepackage{import}
+\usepackage{todonotes}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\setcitestyle{square}
+\usepackage{lscape}
+\usepackage{listings}
+
+%----------------------------------------------------------------
+% Autor (OBRIGATÓRIO)
+%----------------------------------------------------------------
+\author{Atila Leites Romero}
+
+%----------------------------------------------------------------
+% Título (OBRIGATÓRIO). Devem ser passados DOIS parâmetros,
+% o título em português E o inglês, não importando o idioma
+% escolhido. Os títulos são utilizados para a montagem da capa,
+% resumo e abstract mais tarde.
+%----------------------------------------------------------------
+\title{Data carving usando redes neurais LSTM}
+      {Data carving using LSTM neural networks}
+
+%----------------------------------------------------------------
+% Opções para o tipo de trabalho (OBRIGATÓRIO)
+%----------------------------------------------------------------
+%\tipotrabalho{\monografia}  % Monografias em geral (e de "bônus": TCCs)
+%\tipotrabalho{\pep}         % Plano de estudo e pesquisa
+\tipotrabalho{\dissertacao} % Dissertação
+%\tipotrabalho{\ptese}       % Proposta de tese
+%\tipotrabalho{\tese}        % Tese
+
+%----------------------------------------------------------------
+% Seleção do curso ("este trabalho é um requisito parcial para
+% obtenção do grau de (mestre ou doutor) em Ciência da Computação").
+% Necessário somente para o tipo 'monografia'.
+%----------------------------------------------------------------
+%\grau{\bacharel} % Este é "bônus"
+\grau{\mestre}
+%\grau{\doutor}
+
+%----------------------------------------------------------------
+% Orientador (e Co-orientador, caso haja um). É OBRIGATÓRIO
+% informar pelo menos o orientador.
+%----------------------------------------------------------------
+\orientador{Dr. Avelino Francisco Zorzo}
+%\coorientador{Ciclano de Farias}
+
+%----------------------------------------------------------------
+% A capa é inserida automaticamente. Por isso não é necessário
+% chamar \maketitle
+%----------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------
+% Depois da capa vem a dedicatória e a epígrafe.
+%----------------------------------------------------------------
+
+%\dedicatoria{Dedico este trabalho à minha família.}
+%
+%\epigrafe{If we are offered several hypotheses, we should begin our considerations by striking the most complex of them with our sword.}
+         %{Isaac Asimov}
+
+%----------------------------------------------------------------
+% Também dá para fazer as duas na mesma página:
+%----------------------------------------------------------------
+% \dedigrafe{Dedico este trabalho à minha família.}
+%           {If we are offered several hypotheses, we should begin our considerations by striking the most complex of them with our sword.}
+%           {Isaac Asimov}
+
+%----------------------------------------------------------------
+% A seguir, a página de agradecimentos (OPCIONAL):
+%----------------------------------------------------------------
+\begin{agradecimentos}
+%O presente trabalho foi realizado com apoio da Coordenação de Aperfeiçoamento de Pessoal Nivel Superior – Brasil (CAPES) – Código de Financiamento 001
+This study was financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nivel Superior – Brasil (CAPES) – Finance Code 001.
+
+I would also like to acknowledge the support provided by the Pontifical Catholic University of Rio Grande do Sul (PUCRS), by the National Institute of Science and Technology on Forensic Sciences (INCT) and by my advisor Dr. Avelino Francisco Zorzo during the preparation of this dissertation.
+
+\end{agradecimentos}
+
+%----------------------------------------------------------------
+% Resumo, com as palavras-chave passadas por parâmetro
+% (OBRIGATÓRIO, ao menos para teses e dissertações)
+%----------------------------------------------------------------
+\begin{resumo}{computação forense, \textit{carving}, aprendizado de máquina, redes neurais, \textit{long short-term memory}}
+Este trabalho explora o uso de redes neurais \textit{Long Short-Term Memory} (LSTM) em \textit{data carving}, investiga como a construção de software de \textit{data carving} pode ser automatizada total ou parcialmente usando essa tecnologia e propõe uma solução prática na qual uma comunidade de peritos forenses possa construir, de forma colaborativa, modelos para vários tipos de arquivos.
+\end{resumo}
+
+%----------------------------------------------------------------
+% Abstract, com as palavras-chave passadas por parâmetro
+% (OBRIGATÓRIO, ao menos para teses e dissertações)
+%----------------------------------------------------------------
+\begin{abstract}{computer forensics, carving, machine learning, neural networks, long short-term memory}
+% explorations
+% - lstm on data carving
+% - automatization of new data carving parsers
+% - pratical solution
+%from pep 1, paragrafo 7 e pep abstract, paragrafo1
+This work explores the use of Long Short-Term Memory (LSTM) neural networks to perform data carving, investigates how the construction of data carving software can be fully or partially automated using this technology, and apply the findings towards a practical solution in which the forensic examiners community can collaboratively build models for several file types.
+\end{abstract}
+
+%----------------------------------------------------------------
+% Listas e sumário, nessa ordem. Somente o sumário é obrigatório,
+% portanto, comente as outras listas, caso sejam desnecessárias.
+%----------------------------------------------------------------
+\listoffigures       % Lista de figuras      (OPCIONAL)
+\listoftables        % Lista de tabelas      (OPCIONAL)
+\listofalgorithms    % Lista de algoritmos   (OPCIONAL)
+\listofacronyms      % Lista de siglas       (OPCIONAL)
+\listofabbreviations % Lista de abreviaturas (OPCIONAL)
+\listofsymbols       % Lista de símbolos     (OPCIONAL)
+\tableofcontents     % Sumário               (OBRIGATÓRIO)
+
+%----------------------------------------------------------------
+% Aqui começa o desenvolvimento do trabalho. Para uma melhor
+% organização do documento, separe-o em arquivos,
+% um para cada capítulo. Para isso, utilize o comando \include,
+% como mostrado abaixo.
+%----------------------------------------------------------------
+\subimport{content/}{0-chapters}
+
+%----------------------------------------------------------------
+% Aqui vai a bibliografia. Existem dois estilos de citação: use
+% 'ppgcc-alpha' para citações do tipo [Abc+] ou [XYZ] (em ordem
+% alfabética na bibliografia), e 'ppgcc-num' para citações
+% numéricas do tipo [1], [20], etc., em ordem de referência.
+%----------------------------------------------------------------
+\bibliographystyle{ppgcc-alpha}
+%\bibliographystyle{ppgcc-num}
+%\bibliographystyle{apalike}
+\bibliography{zotero}
+
+%----------------------------------------------------------------
+% Após \appendix, se iniciam os capítulos de Apêndice, com
+% numeração alfabética.
+%----------------------------------------------------------------
+
+%----------------------------------------------------------------
+% Aqui vão os "capítulos" de anexos. Cada anexo deve
+% ser considerado um capítulo.
+%----------------------------------------------------------------
+
+% E aqui (para a felicidade de todos) termina o documento.
+\end{document}
