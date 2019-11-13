@@ -1,7 +1,7 @@
 \subsection{Research question}
 % This work compares the use of Multilayer Perceptrons (MLP), Convolutional Neural Networks (CNN) and Long Short-Term Memory (LSTM), and combinations of those types of networks, to perform file fragment classification, which is the first step of the data carving process, identification, answering the following initial questions:
 
-The study of Beebee et al. \cite{beebe_sceadan:_2013} is one of the best works on file fragment classification: it emphasized the problem of multiple data types in a file type, achieved high accuracy using a large amount of file types, made their source code available, suggested hierarchical classification as a way to improve scalability, suggested that misclassification analysis should play a prominent role in classification research, endorsed that high entropy file types tend to have a lower classification accuracy, and briefly mentions that the number of classes should be taken in consideration when comparing accuracy of different studies.
+The study of Beebee et al. \cite{beebe_sceadan:_2013} is one of the best works on file fragment classification: it emphasized the problem of multiple data types in a file type, achieved high accuracy using a large amount of file types, made their source code available, suggested hierarchical classification as a way to improve scalability, suggested that misclassification analysis should play a prominent role in classification research, endorsed that high entropy file types tend to have a lower classification accuracy, and briefly mentioned that the number of classes should be taken in consideration when comparing accuracy of different studies.
 
 This research addresses specifically the last item in the list, the influence of number of classes in accuracy, but the two previous items, misclassification analysis and high entropy, are also part of the discussion. Although is intuitive that a higher number of classes should have an influence on the results of a file fragment classifier, the issue, considering the carving problem perspective, wasn't formally studied yet. Thus, the following initial question is proposed:
 
@@ -9,7 +9,7 @@ This research addresses specifically the last item in the list, the influence of
 \begin{enumerate}[itemindent=\parindent,label=\textbf{Q\arabic*.}]
 
 % Then, the influence of the number of classes on the accuracy of the resulting models is briefly explored.
-    \item How does the accuracy of neural network models change relative to the number of classes?
+    \item How does the accuracy of neural network models trained to classify file fragments change relative to the number of classes?
 
 \end{enumerate}
 

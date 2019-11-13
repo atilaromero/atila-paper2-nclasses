@@ -1,13 +1,17 @@
-%from pep 1, paragrafo 1
-In a forensic context, file recovery is a frequent task that can be motivated by several situations, like physical media malfunction, intentional attempt to hide data, and the need to access deleted or older versions of files. When the filesystem no longer provides the physical location of a file on the media, data carving is often the only procedure capable of retrieving this content.
+In file fragment classification, the objective is to identify to which file type a piece of data belongs. It is a relevant task in file recovery, and researches in this subject did not provided a solution that could substitute the software used in practice, still manually coded. Since some of those tools support hundreds of file types, a machine learning solution that could learn the patterns from examples instead of relying on specifications should be beneficial.
 
-%from pep 1, paragrafo 2
-Data carving is a forensic process that attempts to recover files without previous information of where the file starts or ends \cite{garfinkel_carving_2007}.
-To accomplish this, a program has to analyze a source of raw data, searching for patterns indicating a known file type and making attempts to locate and reconstruct each of its constituent parts.
 
-%from pep 1, paragrafo 2b
-That process commonly disregards the filesystem \cite{veenman_statistical_2007}, being able to recover deleted files from unallocated areas, but faces the problem of fragmentation \cite{veenman_statistical_2007}  \cite{pal_evolution_2009}: in many cases, files are not written sequentially on disk and deleted files may have missing parts.
 
-This procedure is frequently used in forensic environments, but it may also be beneficial in other areas, such as reverse engineering, network traffic analysis, and data mining.
+% %from pep 1, paragrafo 1
+% In a forensic context, file recovery is a frequent task that can be motivated by several situations, like physical media malfunction, intentional attempt to hide data, and the need to access deleted or older versions of files. When the filesystem no longer provides the physical location of a file on the media, data carving is often the only procedure capable of retrieving this content.
 
-This observation is related to the fact that many types of data sources contain embedded files. Therefore, they may be used as input to a data carving process. This includes network traffic, memory dumps, hard drive images, and files containing other files.
+% %from pep 1, paragrafo 2
+% Data carving is a forensic process that attempts to recover files without previous information of where the file starts or ends \cite{garfinkel_carving_2007}.
+% To accomplish this, a program has to analyze a source of raw data, searching for patterns indicating a known file type and making attempts to locate and reconstruct each of its constituent parts.
+
+% %from pep 1, paragrafo 2b
+% That process commonly disregards the filesystem \cite{veenman_statistical_2007}, being able to recover deleted files from unallocated areas, but faces the problem of fragmentation \cite{veenman_statistical_2007}  \cite{pal_evolution_2009}: in many cases, files are not written sequentially on disk and deleted files may have missing parts.
+
+This type of file recovery, called file carving or data carving, is frequently used in forensic environments, but it is also used in other areas, such as reverse engineering, network traffic analysis, and data mining.
+
+% This observation is related to the fact that many types of data sources contain embedded files. Therefore, they may be used as input to a data carving process. This includes network traffic, memory dumps, hard drive images, and files containing other files.
